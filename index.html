@@ -1,1 +1,80 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Crimson Gradient</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+  }
+
+  /* animated gradient background */
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg,
+      #000000,
+      #1F1F1E,
+      #616161,
+      #B71C1C,
+      #CA0006
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 25s ease infinite;
+    z-index: 0;
+  }
+
+  /* container for PNG fuzz */
+  .fuzz-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .fuzz {
+    position: absolute;
+    opacity: 0.2;
+    width: 200px; /* adjust size */
+    animation: float 60s linear infinite;
+  }
+
+  /* positions + delays for variety */
+  .fuzz:nth-child(1) { top: 20%; left: -15%; animation-delay: 0s; }
+  .fuzz:nth-child(2) { top: 50%; left: 110%; animation-delay: 15s; }
+  .fuzz:nth-child(3) { top: 80%; left: -20%; animation-delay: 30s; }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes float {
+    from { transform: translateX(0) translateY(0); }
+    to { transform: translateX(-200%) translateY(-50%); }
+  }
+</style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="fuzz-container">
+    <img src="smiles.png" class="fuzz" />
+    <img src="pill2.png" class="fuzz" />
+    <img src="cigpack.png" class="fuzz" />
+    <img src="pill1.png" class="fuzz" />
+    <img src="ciggy.png" class="fuzz" />
+    <img src="beer.png" class="fuzz" />
+  </div>
+</body>
+</html>
