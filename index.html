@@ -1,16 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dark Crimson Gradient</title>
+<title>16:9 Falling Icons</title>
 <style>
   body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 16:9 aspect ratio container */
+  .wrapper {
+    position: relative;
+    width: 90vw;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background: #000;
   }
@@ -32,7 +42,7 @@
     z-index: 0;
   }
 
-  /* container for PNG fuzz */
+  /* container for PNG icons */
   .fuzz-container {
     position: absolute;
     width: 100%;
@@ -44,37 +54,41 @@
 
   .fuzz {
     position: absolute;
-    opacity: 0.2;
-    width: 200px; /* adjust size */
-    animation: float 60s linear infinite;
+    opacity: 0.4;
+    width: 120px;
+    animation: fall linear infinite;
   }
 
-  /* positions + delays for variety */
-  .fuzz:nth-child(1) { top: 20%; left: -15%; animation-delay: 0s; }
-  .fuzz:nth-child(2) { top: 50%; left: 110%; animation-delay: 15s; }
-  .fuzz:nth-child(3) { top: 80%; left: -20%; animation-delay: 30s; }
-
+  /* gradient animation */
   @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
 
-  @keyframes float {
-    from { transform: translateX(0) translateY(0); }
-    to { transform: translateX(-200%) translateY(-50%); }
+  /* falling animation */
+  @keyframes fall {
+    from { transform: translateY(-150px); }
+    to { transform: translateY(110%); }
   }
 </style>
 </head>
 <body>
-  <div class="background"></div>
-  <div class="fuzz-container">
-    <img src="smiles.png" class="fuzz" />
-    <img src="pill2.png" class="fuzz" />
-    <img src="cigpack.png" class="fuzz" />
-    <img src="pill1.png" class="fuzz" />
-    <img src="ciggy.png" class="fuzz" />
-    <img src="beer.png" class="fuzz" />
+  <div class="wrapper">
+    <div class="background"></div>
+    <div class="fuzz-container">
+      <!-- multiple icons -->
+      <img src="smiles.png" class="fuzz" style="left:5%; animation-duration:12s; animation-delay:0s;">
+      <img src="pill2.png" class="fuzz" style="left:15%; animation-duration:15s; animation-delay:3s;">
+      <img src="cigpack.png" class="fuzz" style="left:25%; animation-duration:18s; animation-delay:6s;">
+      <img src="pill1.png" class="fuzz" style="left:35%; animation-duration:14s; animation-delay:2s;">
+      <img src="ciggy.png" class="fuzz" style="left:45%; animation-duration:20s; animation-delay:5s;">
+      <img src="beer.png" class="fuzz" style="left:55%; animation-duration:17s; animation-delay:1s;">
+      <img src="smiles.png" class="fuzz" style="left:65%; animation-duration:13s; animation-delay:4s;">
+      <img src="pill2.png" class="fuzz" style="left:75%; animation-duration:16s; animation-delay:7s;">
+      <img src="cigpack.png" class="fuzz" style="left:85%; animation-duration:19s; animation-delay:8s;">
+      <img src="pill1.png" class="fuzz" style="left:95%; animation-duration:21s; animation-delay:10s;">
+    </div>
   </div>
 </body>
 </html>
